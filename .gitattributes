@@ -1,0 +1,14 @@
+# 归一化换行符：仓库内一律 LF，避免 Linux/macOS 上 clone 出 CRLF
+* text=auto eol=lf
+
+# 二进制（图、字体等）不做转换
+*.png binary
+*.jpg binary
+*.pdf binary
+*.svg text eol=lf
+*.pgf text eol=lf
+
+# 让 GitHub 正确识别语言与 diff
+*.py   text eol=lf
+*.md   text eol=lf
+*.m    text eol=lf
