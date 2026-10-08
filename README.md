@@ -1,10 +1,12 @@
-> 🕒 v2 · 2026-10-08 20:28 · dsh-agent ｜ 变更：修正安装路径：仓库根即技能目录 ｜ 上一版：v1 · 2026-10-08 20:09
+> 🕒 v3 · 2026-10-08 20:40 · dsh-agent ｜ 变更：诚实化定位（中文字体支持来自 SciencePlots）+ 新增效果截图区 ｜ 上一版：v2 · 2026-10-08 20:28
 
 # sci-figures — 科研作图技能包（DSH Skill）
 
 给 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) 用的科研作图技能：从「这张图要证明什么」到成图，含期刊样式工具箱、四个可复用图式、六条出图路线实测对比。
 
-**特点**：**中文矢量出图**（不出方框）+ 色盲安全配色 + 字体嵌入的 PDF/SVG/PGF + LaTeX 字体一致。
+**它做什么**：把科研出图的**图式**（怎么用图形讲一句话）和**踩坑**固化成可复用资产，并在 [SciencePlots](https://github.com/garrettj403/SciencePlots) 之上封装一个默认栈（字体回退链 + 关掉 `text.usetex` 冲突 + 矢量字体嵌入 + 色盲安全配色）。
+
+> ⚠️ **中文字体支持主要来自 SciencePlots 的 `cjk-sc-font`**（其官方文档已支持简体中文），本技能做的是在其之上少踩坑，**不是它的替代品**。本技能独有的部分是**五个图式**与**踩坑清单**。
 
 ## 装
 
@@ -37,6 +39,24 @@ pip install plotly kaleido plotnine altair vl-convert-python   # 可选：另外
 | `scripts/mpl_style.py` | 工具箱：`use()` / `save()` / `save_pgf()` / `PALETTE` + 四个图式函数 |
 | `references/图式库.md` | 图式库：钉子 · 阶梯 · 滑轴 · 魔方串烧（append-only，持续追加实例） |
 | `references/工具链.md` | 六条出图路线实测对比（SciencePlots / pgf / TikZ / Plotly / Plotnine / Altair）+ 实测坑 |
+
+## 效果
+
+示例图全部由 `examples/make_examples.py` 用固定 seed 生成，**可复跑**（不是手放的死图）：
+
+| 钉子（钉住关键点） | 阶梯（分阶段抬升 + 事件标注） |
+|---|---|
+| ![钉子](examples/fig1_nail.png) | ![阶梯](examples/fig2_staircase.png) |
+
+| 滑轴（断轴看全貌 + 尾部） | 魔方串烧（多快照共享色标） |
+|---|---|
+| ![滑轴](examples/fig3_sliding.png) | ![魔方串烧](examples/fig4_cube_skewer.png) |
+
+复跑：
+
+```bash
+python examples/make_examples.py
+```
 
 ## 自检
 

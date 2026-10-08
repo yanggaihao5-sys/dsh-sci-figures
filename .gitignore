@@ -1,0 +1,5 @@
+# 生成物 / 构建产物（示例图 *.png 是有意入库的展示图，不要忽略）
+*.pgf
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
